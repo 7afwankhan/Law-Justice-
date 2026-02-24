@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law & Justice of Bangladesh</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables for Color Palette */
+        :root {
+            --navy-blue: #1a2a6c;
+            --gold: #b8860b;
+            --white: #ffffff;
+            --dark-gray: #333333;
+            --light-bg: #f9f9f9;
+        }
+
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(26, 42, 108, 0.8), rgba(26, 42, 108, 0.8)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #d4af37;
+        }
+
+        /* Practice Areas (Services) Section */
+        .services {
+            padding: 5rem 5%;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--navy-blue);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--gold);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--navy-blue);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1505664159891-b9b5a8e03e91?auto=format&fit=crop&q=80') center/cover;
+            border-radius: 8px;
+            box-shadow: -15px -15px 0 var(--gold);
+        }
+
+     /* Contact Section */
+     .contact {
+            padding: 5rem 5%;
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+
+        .contact .section-title {
+            color: var(--gold);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Info on left, Map on right */
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center; 
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .contact-details p {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* WhatsApp Button Styling */
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25D366; 
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            width: fit-content;
+            transition: background 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        /* Map Container Styling */
+        .map-wrapper {
+            width: 100%;
+        }
+        
+        .map-container {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive Layout for Mobile */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none; /* Hidden by default */
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            z-index: 99;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #d4af37;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* In a real app, you'd add a hamburger menu here */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">Law & Justice of BD</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Practice Areas</a></li>
+            <li><a href="#about">Profile</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <h1>Expert Legal Guidance in Bangladesh</h1>
+        <p>Providing resolute, ethical, and effective legal representation across the Supreme Court and lower courts of Bangladesh.</p>
+        <a href="#contact" class="btn">Book a Consultation</a>
+    </header>
+
+    <section id="services" class="services">
+        <h2 class="section-title">Our Practice Areas</h2>
+        <div class="services-grid">
+            <div class="card">
+                <i class="fa-solid fa-gavel"></i>
+                <h3>Criminal Defense</h3>
+                <p>Robust representation for clients facing criminal charges, ensuring fair trials and constitutional rights are protected.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-building"></i>
+                <h3>Land & Property</h3>
+                <p>Expertise in resolving complex property disputes, land registration, and real estate litigation in Bangladesh.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-people-roof"></i>
+                <h3>Family Law</h3>
+                <p>Compassionate legal assistance for divorce, child custody, inheritance (Waqf/Succession), and family disputes.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <h3>Constitutional Law</h3>
+                <p>Filing writ petitions to the High Court Division to safeguard fundamental rights against unlawful state actions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-image"></div>
+        <div class="about-text">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 1rem;">Advocate Profile</h2>
+            <p><strong>Law & Justice of Bangladesh</strong> represents a commitment to upholding the rule of law and providing accessible legal remedies. With extensive experience practicing before the Supreme Court of Bangladesh, our chambers are equipped to handle high-stakes litigation.</p>
+            <p>We believe in transparent communication, meticulous preparation, and a relentless pursuit of justice for our clients, whether they are individuals, corporations, or organizations.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Get in Touch</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-details">
+                    <p><i class="fa-solid fa-location-dot" style="color: var(--gold);"></i> Supreme Court Bar Association Building, Dhaka 1000</p>
+                    <p><i class="fa-solid fa-phone" style="color: var(--gold);"></i> +880 1711 000000</p>
+                    <p><i class="fa-solid fa-envelope" style="color: var(--gold);"></i> advocate@lawandjusticebd.com</p>
+                </div>
+
+                <a href="https://wa.me/8801711000000" target="_blank" class="whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+
+            <div class="map-wrapper">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.5645362145326!2d90.39806141543161!3d23.727237895574514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8eb2da2e153%3A0x67a3f4e1f72b8d4!2sSupreme%20Court%20of%20Bangladesh!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Law & Justice of Bangladesh. All Rights Reserved.</p>
+    </footer>
+
+    <button id="scrollTopBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script>
+        // 1. Form Submission Alert
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents the page from refreshing
+            
+            // Get the values (you can use these later to send to a backend)
+            const name = document.getElementById('name').value;
+            
+            // Simple Alert Notification
+            alert(`Thank you, ${name}! Your message has been sent successfully. Our team will contact you soon.`);
+            
+            // Clear the form
+            form.reset();
+        });
+
+        // 2. Scroll to Top Button Logic
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // Show the button when scrolling down 300px from top
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        // Scroll to the top when clicked
+        scrollTopBtn.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // 3. Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
